@@ -1,24 +1,29 @@
 import './App.css';
 import React from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
-import Home from './Home';
-import Sobre from './Sobre';
-import Usuario from './Usuario';
+import Dash from './pages/Dash';
+import Sobre from './pages/Sobre';
+import background from './img/montanhas.png'
+import Login from './pages/Login';
 
 export default function App() {
   return (
       <>
-    <header>
-    <p><Link to='/home'>Home</Link></p>
-    <Link to='/usuario'>Usuario</Link>
-    </header>
-    <main>
-        <Switch>
-          <Route path='/usuario' component= {Usuario}/>
-          <Route path='/sobre' component= {Sobre}/>
-          <Route path='/home' component= {Home}/>
-        </Switch>
-      </main></>
+      <header>
+      <Link to="/sobre" className='links'>Bem vindo</Link>
+      <Link to="/" className='links'>Login</Link>
+      <Link to="/home" className='links'>Home</Link>
+      </header>
+    <div>
+    <Switch>
+      <Route path='/home' component= {Dash}/>
+      <Route path='/sobre' component= {Sobre}/>
+      <Route path='/' component= {Login}/>
+    </Switch>      
+    <img src={background}>
+    </img>
+    </div>
+    </>
   );
 }
 
